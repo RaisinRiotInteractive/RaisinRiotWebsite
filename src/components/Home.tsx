@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { type ThemeConfig } from '../themes';
 import { motion } from 'framer-motion';
-import { Gamepad2, Users, Sparkles, MessageCircle, Share2, Download, Image as ImageIcon, Shield, LogIn } from 'lucide-react';
+import { Gamepad2, Users, Sparkles, MessageCircle, Share2, Download, Image as ImageIcon, Shield } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 interface HomeProps {
@@ -9,14 +9,6 @@ interface HomeProps {
 }
 
 const Home: React.FC<HomeProps> = ({ currentTheme }) => {
-    const [joinCode, setJoinCode] = useState('');
-
-    const handleJoinGame = () => {
-        const code = joinCode.trim().toUpperCase();
-        if (code.length === 6) {
-            window.open(`https://raisinriot.com/live/${code}`, '_blank');
-        }
-    };
     return (
         <motion.div
             key="home"
@@ -91,63 +83,6 @@ const Home: React.FC<HomeProps> = ({ currentTheme }) => {
                     </div>
                 </motion.div>
 
-                {/* Join a Live Game */}
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.15 }}
-                    className={`
-                        w-full max-w-xl mb-12 p-6 rounded-2xl border-2 text-center
-                        ${currentTheme.cardBackground}
-                        ${currentTheme.cardBorder}
-                        ${currentTheme.cardShadow}
-                        backdrop-blur-sm
-                    `}
-                >
-                    <h2 className={`text-2xl font-black mb-1 ${currentTheme.textPrimary}`}>
-                        <span className="flex items-center justify-center gap-2">
-                            <LogIn size={24} />
-                            JOIN A LIVE GAME
-                        </span>
-                    </h2>
-                    <p className={`text-sm mb-5 ${currentTheme.textSecondary}`}>
-                        Enter the 6-digit code from your host's screen
-                    </p>
-                    <div className="flex gap-3 justify-center">
-                        <input
-                            type="text"
-                            value={joinCode}
-                            onChange={(e) => setJoinCode(e.target.value.toUpperCase().replace(/[^A-Z0-9]/g, '').slice(0, 6))}
-                            onKeyDown={(e) => e.key === 'Enter' && handleJoinGame()}
-                            placeholder="XXXXXX"
-                            maxLength={6}
-                            className={`
-                                w-40 px-4 py-3 rounded-xl text-center text-2xl font-black tracking-widest
-                                border-2 outline-none focus:scale-105 transition-transform
-                                ${currentTheme.cardBorder}
-                                bg-black/20 ${currentTheme.textPrimary}
-                                placeholder-current opacity-100
-                            `}
-                            style={{ letterSpacing: '0.3em' }}
-                        />
-                        <button
-                            onClick={handleJoinGame}
-                            disabled={joinCode.trim().length !== 6}
-                            className={`
-                                px-6 py-3 text-lg font-bold rounded-xl
-                                ${currentTheme.buttonPrimary}
-                                transform transition-all active:scale-95
-                                disabled:opacity-40 disabled:cursor-not-allowed disabled:scale-100
-                            `}
-                        >
-                            <span className="flex items-center gap-2">
-                                <LogIn size={20} />
-                                JOIN
-                            </span>
-                        </button>
-                    </div>
-                </motion.div>
-
                 {/* Feature Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl w-full mb-20">
                     {[
@@ -196,7 +131,7 @@ const Home: React.FC<HomeProps> = ({ currentTheme }) => {
                         OUR GAMES
                     </motion.h2>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         <motion.div
                             initial={{ opacity: 0, x: -20 }}
                             whileInView={{ opacity: 1, x: 0 }}
@@ -269,12 +204,9 @@ const Home: React.FC<HomeProps> = ({ currentTheme }) => {
                                 />
                             </div>
                             <div className="p-8">
-                                <h3 className={`text-3xl font-bold mb-2 ${currentTheme.textPrimary}`}>
+                                <h3 className={`text-3xl font-bold mb-4 ${currentTheme.textPrimary}`}>
                                     Raisin Word-Connect
                                 </h3>
-                                <div className={`inline-block px-3 py-1 rounded-full text-sm font-bold mb-4 ${currentTheme.cardBorder} border-2 ${currentTheme.textAccent}`}>
-                                    Releasing March 27th 2026
-                                </div>
                                 <p className={`text-lg mb-6 ${currentTheme.textSecondary}`}>
                                     Tiktok/Twitch interactive game where you find words and climb the leaderboard in a hex like series of letters.
                                 </p>
@@ -291,6 +223,61 @@ const Home: React.FC<HomeProps> = ({ currentTheme }) => {
                                 </ul>
                                 <a
                                     href="https://store.steampowered.com/app/4452990/Raisin_WordConnect/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className={`
+              inline-flex items-center gap-2 px-8 py-3 text-lg font-bold rounded-xl
+              ${currentTheme.buttonPrimary}
+              transform transition-all active:scale-95
+            `}
+                                >
+                                    <Gamepad2 size={20} />
+                                    View on Steam
+                                </a>
+                            </div>
+                        </motion.div>
+
+                        <motion.div
+                            initial={{ opacity: 0, x: 20 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            className={`
+          overflow-hidden rounded-3xl border-2
+          ${currentTheme.cardBackground}
+          ${currentTheme.cardBorder}
+          ${currentTheme.cardShadow}
+        `}
+                        >
+                            <div className="aspect-video w-full bg-black/20 flex items-center justify-center p-8">
+                                <img
+                                    src="/raisin_sudoku.png"
+                                    alt="Raisin Sudoku"
+                                    className="w-full h-full object-contain filter drop-shadow-xl transition-transform hover:scale-105 duration-500 rounded-xl"
+                                />
+                            </div>
+                            <div className="p-8">
+                                <h3 className={`text-3xl font-bold mb-2 ${currentTheme.textPrimary}`}>
+                                    Raisin Sudoku
+                                </h3>
+                                <div className={`inline-block px-3 py-1 rounded-full text-sm font-bold mb-4 ${currentTheme.cardBorder} border-2 ${currentTheme.textAccent}`}>
+                                    Releasing August 28th 2026
+                                </div>
+                                <p className={`text-lg mb-6 ${currentTheme.textSecondary}`}>
+                                    TikTok/Twitch interactive sudoku where your chat helps solve the grid together and race the clock for the top spot on the leaderboard.
+                                </p>
+                                <ul className={`mb-6 space-y-2 ${currentTheme.textSecondary}`}>
+                                    <li className="flex items-center gap-2">
+                                        <Sparkles size={16} /> Twitch & TikTok Chat Integration
+                                    </li>
+                                    <li className="flex items-center gap-2">
+                                        <Sparkles size={16} /> Classic Sudoku Puzzle Mechanics
+                                    </li>
+                                    <li className="flex items-center gap-2">
+                                        <Sparkles size={16} /> Climb the Leaderboards
+                                    </li>
+                                </ul>
+                                <a
+                                    href="https://store.steampowered.com/app/5014910/Raisin_Sudoku/"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className={`
