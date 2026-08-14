@@ -4,6 +4,8 @@ import { THEMES, type ThemeConfig } from './themes';
 import { AnimatePresence } from 'framer-motion';
 import Home from './components/Home';
 import PrivacyPolicy from './components/PrivacyPolicy';
+import BotTerms from './components/BotTerms';
+import BotPrivacy from './components/BotPrivacy';
 import NotFound from './components/NotFound';
 
 function App() {
@@ -17,6 +19,8 @@ function App() {
       <AnimatePresence mode="wait">
         <Routes location={location} key={location.pathname}>
           <Route path="/privacy" element={<PrivacyPolicy />} />
+          <Route path="/botterms" element={<BotTerms />} />
+          <Route path="/botprivacy" element={<BotPrivacy />} />
           <Route path="/" element={<Home currentTheme={currentTheme} />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

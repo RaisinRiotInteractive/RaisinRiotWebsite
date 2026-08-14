@@ -1,7 +1,7 @@
 import React from 'react';
 import { type ThemeConfig } from '../themes';
 import { motion } from 'framer-motion';
-import { Gamepad2, Users, Sparkles, MessageCircle, Share2, Download, Image as ImageIcon, Shield } from 'lucide-react';
+import { Gamepad2, Users, Sparkles, MessageCircle, Share2, Download, Image as ImageIcon, Shield, Scale } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 interface HomeProps {
@@ -415,14 +415,32 @@ const Home: React.FC<HomeProps> = ({ currentTheme }) => {
                     <p className={`${currentTheme.textSecondary} text-sm mb-4 md:mb-0`}>
                         © 2026 Raisin Riot. All rights reserved.
                     </p>
-                    <Link
-                        to="/privacy"
-                        onClick={() => window.scrollTo(0, 0)}
-                        className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-bold ${currentTheme.buttonSecondary} hover:opacity-80 transition-opacity`}
-                    >
-                        <Shield size={16} />
-                        Privacy Policy
-                    </Link>
+                    <div className="flex flex-wrap items-center justify-center gap-3">
+                        <Link
+                            to="/privacy"
+                            onClick={() => window.scrollTo(0, 0)}
+                            className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-bold ${currentTheme.buttonSecondary} hover:opacity-80 transition-opacity`}
+                        >
+                            <Shield size={16} />
+                            Privacy Policy
+                        </Link>
+                        <Link
+                            to="/botterms"
+                            onClick={() => window.scrollTo(0, 0)}
+                            className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-bold ${currentTheme.buttonSecondary} hover:opacity-80 transition-opacity`}
+                        >
+                            <Scale size={16} />
+                            Bot Terms
+                        </Link>
+                        <Link
+                            to="/botprivacy"
+                            onClick={() => window.scrollTo(0, 0)}
+                            className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-bold ${currentTheme.buttonSecondary} hover:opacity-80 transition-opacity`}
+                        >
+                            <Shield size={16} />
+                            Bot Privacy
+                        </Link>
+                    </div>
                 </footer>
             </div>
         </motion.div>
