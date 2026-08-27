@@ -28,8 +28,23 @@ const Home: React.FC<HomeProps> = ({ currentTheme }) => {
                     <h1 className={`text-6xl md:text-8xl font-black mb-6 tracking-tight ${currentTheme.textPrimary} ${currentTheme.glowEffect !== 'none' ? currentTheme.glowEffect : ''}`}>
                         RAISIN RIOT
                     </h1>
-                    <p className={`text-xl md:text-3xl font-medium mb-10 ${currentTheme.textSecondary}`}>
+                    <p className={`text-xl md:text-3xl font-medium mb-6 ${currentTheme.textSecondary}`}>
                         Interactive Games for TikTok, Twitch & Local Play
+                    </p>
+
+                    <p className={`text-sm md:text-base font-medium mb-10 ${currentTheme.textSecondary} opacity-80`}>
+                        Works with Twitch, TikTok, Kick & more — don't see your platform?{' '}
+                        <a
+                            href="#contact"
+                            onClick={(e) => {
+                                e.preventDefault();
+                                document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                            }}
+                            className={`underline underline-offset-2 hover:opacity-80 transition-opacity ${currentTheme.textAccent}`}
+                        >
+                            Let us know
+                        </a>{' '}
+                        and we'll look into it.
                     </p>
 
                     <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
@@ -256,12 +271,9 @@ const Home: React.FC<HomeProps> = ({ currentTheme }) => {
                                 />
                             </div>
                             <div className="p-8">
-                                <h3 className={`text-3xl font-bold mb-2 ${currentTheme.textPrimary}`}>
+                                <h3 className={`text-3xl font-bold mb-4 ${currentTheme.textPrimary}`}>
                                     Raisin Sudoku
                                 </h3>
-                                <div className={`inline-block px-3 py-1 rounded-full text-sm font-bold mb-4 ${currentTheme.cardBorder} border-2 ${currentTheme.textAccent}`}>
-                                    Releasing August 28th 2026
-                                </div>
                                 <p className={`text-lg mb-6 ${currentTheme.textSecondary}`}>
                                     TikTok/Twitch interactive sudoku where your chat helps solve the grid together and race the clock for the top spot on the leaderboard.
                                 </p>
