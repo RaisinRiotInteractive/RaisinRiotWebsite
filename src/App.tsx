@@ -9,12 +9,12 @@ import BotPrivacy from './components/BotPrivacy';
 import NotFound from './components/NotFound';
 
 function App() {
-  const [currentTheme] = useState<ThemeConfig>(THEMES.classic);
+  const [currentTheme] = useState<ThemeConfig>(THEMES.cosmic);
   const location = useLocation();
 
   return (
     <div
-      className={`min-h-screen w-full transition-colors duration-700 ease-in-out ${currentTheme.background} ${currentTheme.fontFamily} overflow-x-hidden`}
+      className={`min-h-screen w-full transition-colors duration-500 ease-in-out cosmic-canvas font-body text-[#f4f1e8] overflow-x-hidden`}
     >
       <AnimatePresence mode="wait">
         <Routes location={location} key={location.pathname}>

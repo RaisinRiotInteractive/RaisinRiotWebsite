@@ -1,10 +1,9 @@
-
 export interface ThemeConfig {
     id: string;
     label: string;
     // Core Layout
     background: string; // The main wrapper background
-    fontFamily: string; // Font class (font-serif, font-sans, font-mono)
+    fontFamily: string; // Font class
 
     // Text
     textPrimary: string;
@@ -36,38 +35,72 @@ export interface ThemeConfig {
 }
 
 export const THEMES: Record<string, ThemeConfig> = {
+    cosmic: {
+        id: 'cosmic',
+        label: 'Galaxy Purple',
+        background: 'bg-[#0e071e]',
+        fontFamily: 'font-body',
+
+        textPrimary: 'text-[#f4f1e8]',
+        textSecondary: 'text-[#9f96c2]',
+        textAccent: 'text-[#ffd23f]',
+
+        cardBackground: 'bg-[#1a0f35]',
+        cardBorder: 'border-[#28144c]',
+        cardShadow: 'shadow-[inset_0_-8px_0_#1e0d3c,0_8px_24px_rgba(0,0,0,0.45)]',
+
+        gridBackground: 'bg-[#120925]',
+        gridText: 'text-[#f4f1e8]',
+        gridBorder: 'border-[#28144c]',
+        gridHeaderBackground: 'bg-[#331960]',
+        gridHeaderText: 'text-[#b58aff]',
+
+        buttonPrimary: 'btn-pressable btn-gold',
+        buttonSecondary: 'btn-pressable btn-indigo',
+
+        highlightColor: 'bg-[#ffd23f] text-[#100b1e]',
+        highlightColors: [
+            'bg-[#ffd23f] text-[#100b1e]',
+            'bg-[#5fd68a] text-[#100b1e]',
+            'bg-[#8fd8ff] text-[#100b1e]',
+            'bg-[#b58aff] text-[#100b1e]',
+            'bg-[#ff7a45] text-[#100b1e]',
+            'bg-[#4fd1c5] text-[#100b1e]',
+        ],
+        glowEffect: 'drop-shadow-[0_0_24px_rgba(181,138,255,0.35)]'
+    },
     classic: {
         id: 'classic',
-        label: 'Classic Paper',
-        background: 'bg-[#f4f1ea]', // Paper-like off-white
-        fontFamily: 'font-serif',
+        label: 'Galaxy Purple',
+        background: 'bg-[#0e071e]',
+        fontFamily: 'font-body',
 
-        textPrimary: 'text-slate-900',
-        textSecondary: 'text-slate-600',
-        textAccent: 'text-indigo-600',
+        textPrimary: 'text-[#f4f1e8]',
+        textSecondary: 'text-[#9f96c2]',
+        textAccent: 'text-[#ffd23f]',
 
-        cardBackground: 'bg-white',
-        cardBorder: 'border-slate-900',
-        cardShadow: 'shadow-md',
+        cardBackground: 'bg-[#1a0f35]',
+        cardBorder: 'border-[#28144c]',
+        cardShadow: 'shadow-[inset_0_-8px_0_#1e0d3c,0_8px_24px_rgba(0,0,0,0.45)]',
 
-        gridBackground: 'bg-white',
-        gridText: 'text-slate-900',
-        gridBorder: 'border-slate-300',
-        gridHeaderBackground: 'bg-slate-200',
-        gridHeaderText: 'text-black',
+        gridBackground: 'bg-[#120925]',
+        gridText: 'text-[#f4f1e8]',
+        gridBorder: 'border-[#28144c]',
+        gridHeaderBackground: 'bg-[#331960]',
+        gridHeaderText: 'text-[#b58aff]',
 
-        buttonPrimary: 'bg-slate-900 text-white hover:bg-slate-800',
-        buttonSecondary: 'bg-slate-200 text-slate-800 hover:bg-slate-300',
+        buttonPrimary: 'btn-pressable btn-gold',
+        buttonSecondary: 'btn-pressable btn-indigo',
 
-        highlightColor: 'bg-yellow-300',
+        highlightColor: 'bg-[#ffd23f] text-[#100b1e]',
         highlightColors: [
-            'bg-yellow-300/60 text-black',
-            'bg-green-300/60 text-black',
-            'bg-blue-300/60 text-black',
-            'bg-pink-300/60 text-black',
-            'bg-orange-300/60 text-black',
-            'bg-purple-300/60 text-black',
+            'bg-[#ffd23f] text-[#100b1e]',
+            'bg-[#5fd68a] text-[#100b1e]',
+            'bg-[#8fd8ff] text-[#100b1e]',
+            'bg-[#b58aff] text-[#100b1e]',
+            'bg-[#ff7a45] text-[#100b1e]',
+            'bg-[#4fd1c5] text-[#100b1e]',
         ],
-        glowEffect: 'none'
+        glowEffect: 'drop-shadow-[0_0_24px_rgba(181,138,255,0.35)]'
     },
 };

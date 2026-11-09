@@ -1,13 +1,9 @@
 import React from 'react';
-import { THEMES } from '../themes';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, SearchX } from 'lucide-react';
+import { SearchX, ArrowLeft } from 'lucide-react';
 
 const NotFound: React.FC = () => {
-    // Relying on the same theming approach as the Privacy Policy page
-    const currentTheme = THEMES.classic;
-
     return (
         <motion.div
             key="not-found"
@@ -15,35 +11,35 @@ const NotFound: React.FC = () => {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 1.05 }}
             transition={{ duration: 0.3 }}
-            className={`min-h-screen w-full flex items-center justify-center p-6 ${currentTheme.background} ${currentTheme.textPrimary}`}
+            className="min-h-screen w-full flex items-center justify-center p-6 cosmic-canvas text-[#f4f1e8]"
         >
-            <div className={`p-8 md:p-16 max-w-2xl w-full text-center rounded-3xl border-2 ${currentTheme.cardBackground} ${currentTheme.cardBorder} ${currentTheme.cardShadow}`}>
-                <div className="flex justify-center mb-8">
-                    <div className={`p-6 rounded-full inline-block ${currentTheme.gridHeaderBackground} ${currentTheme.gridHeaderText}`}>
-                        <SearchX size={64} className="opacity-80" />
+            <div className="cosmic-panel p-8 sm:p-14 max-w-xl w-full text-center">
+                <div className="flex justify-center mb-6">
+                    <div className="w-24 h-24 rounded-3xl flex items-center justify-center bg-[#120925] border-2 border-[#28144c] shadow-[inset_0_2px_6px_rgba(0,0,0,0.7)] text-[#ffd23f]">
+                        <SearchX size={52} />
                     </div>
                 </div>
 
-                <h1 className={`text-6xl md:text-8xl font-black mb-4 tracking-tight drop-shadow-md ${currentTheme.textPrimary}`}>
+                <h1 className="headline-arcade text-6xl sm:text-7xl font-black mb-3 tracking-tight text-[#f4f1e8]">
                     404
                 </h1>
 
-                <h2 className={`text-2xl md:text-3xl font-bold mb-6 ${currentTheme.textPrimary}`}>
+                <h2 className="text-2xl sm:text-3xl font-black mb-4 text-[#8fd8ff]">
                     Page Not Found
                 </h2>
 
-                <p className={`text-lg mb-10 ${currentTheme.textSecondary}`}>
-                    Oops! It looks like you've tumbled outside the grid. The page you're looking for doesn't exist or has been moved.
+                <p className="text-base sm:text-lg mb-8 text-[#9f96c2] font-medium leading-relaxed">
+                    Oops! Looks like your spaceship drifted off the cosmic grid. The coordinates you entered do not exist or have moved.
                 </p>
 
                 <div className="flex justify-center">
                     <Link
                         to="/"
                         onClick={() => window.scrollTo(0, 0)}
-                        className={`inline-flex items-center gap-3 px-8 py-4 rounded-xl text-lg font-bold ${currentTheme.buttonPrimary} hover:opacity-90 transform transition-all active:scale-95 shadow-lg`}
+                        className="btn-pressable btn-gold px-8 py-3.5 text-base font-black tracking-wider uppercase inline-flex items-center gap-3"
                     >
-                        <ArrowLeft size={24} />
-                        Return to Home
+                        <ArrowLeft size={20} />
+                        Return to Arcade
                     </Link>
                 </div>
             </div>
