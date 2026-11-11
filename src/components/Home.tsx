@@ -426,9 +426,14 @@ const Home: React.FC<HomeProps> = ({ currentTheme }) => {
                                 </ul>
 
                                 <div className="flex justify-center lg:justify-start">
-                                    <div className="btn-pressable btn-gold px-9 py-4 text-lg font-black tracking-wider uppercase select-none cursor-default inline-flex items-center">
-                                        Coming Nov 30, 2026
-                                    </div>
+                                    <a
+                                        href="https://store.steampowered.com/app/5539420/Raisin_Universe/"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="btn-pressable btn-gold px-9 py-4 text-lg font-black tracking-wider uppercase inline-flex items-center"
+                                    >
+                                        View on Steam
+                                    </a>
                                 </div>
                             </div>
                         </div>
